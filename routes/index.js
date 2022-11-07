@@ -19,7 +19,7 @@ router.get("/api/:date", (req, res) => {
   if (isNaN(Date.parse(todayDate)) === false) {
     res.status(200).json({
       unix: unixTimestamp,
-      date: `${todayDate.toUTCString()}`,
+      utc: `${todayDate.toUTCString()}`,
     });
   }else{
     const unixToUtc = param * 1000;
@@ -28,7 +28,7 @@ router.get("/api/:date", (req, res) => {
     if (isNaN(Date.parse(dateObj)) === false) {
       res.status(200).json({
         unix: unix,
-        date: `${dateObj.toUTCString()}`,
+        utc: `${dateObj.toUTCString()}`,
       });
     }else{
       res.status(400).json({
